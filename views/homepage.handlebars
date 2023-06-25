@@ -1,0 +1,22 @@
+{{#if logged_in}}
+ <div class="text-dark text-right">
+  <h2 >Welcome, {{name}}!</h2>
+</div>
+{{/if}}
+ 
+
+{{#each blogposts as |blogpost| }}
+<div class="col mb-4 blogpost ">
+  <div class="flex-row justify-space-between p-2 bd-highlight bg-primary "> 
+    <h4> 
+      <a href="/blogpost/{{blogpost.id}}">{{blogpost.name}}</a>
+    </h4> 
+    <p class="text-info">Posted by {{blogpost.user.name}} on {{format_date blogpost.date_created}}</p>
+  </div>
+  <div class="col-md-8">
+    <p>
+      {{blogpost.description}}
+    </p>
+  </div>
+</div> 
+{{/each}}
